@@ -12,8 +12,8 @@ import 'swiper/css/pagination';
 import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 const Banner = () => {
   return (
-    <div className='container mx-auto'>
-      <div className='w-[120vh] mx-auto '>
+    <div className='container mx-auto mt-10'>
+      <div className='lg:w-[120vh] mx-auto md:w-[50vh] md:mt-20 w-[30vh]'>
         <Swiper
           spaceBetween={30}
           effect={'fade'}
@@ -50,7 +50,7 @@ const Banner = () => {
               <h1 className='font-bold text-4xl text-center w-1/2 mb-4'>
                 Unlock the Potential of Fertile Grounds
               </h1>
-              <p className='text-center w-1/2 mb-4'>
+              <p className='text-center w-1/2 mb-4 lg:block md:block hidden'>
                 "Embrace the opportunity to cultivate your dreams on vast
                 expanses of fertile soil. Our agricultural land offerings,
                 available for sale or rent, provide the perfect canvas for
@@ -64,7 +64,7 @@ const Banner = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div
-              className='flex flex-col justify-center items-center w-[65vw] h-[55vh]'
+              className='flex flex-col justify-center items-center w-[65vw] h-[55vh] rounded-2xl'
               style={{
                 background: `
                 linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -77,7 +77,7 @@ const Banner = () => {
               <h1 className='font-bold text-4xl text-center w-1/2 mb-4'>
                 Live the Cowboy Dream: Ranches for Sale or Rent
               </h1>
-              <p className='text-center w-1/2 mb-4'>
+              <p className='text-center w-1/2 mb-4 lg:block md:block hidden'>
                 Escape to the enchanting world of ranch living with our
                 selection of exquisite properties available for sale or rent.
                 Whether you seek a sprawling cattle ranch, a picturesque
@@ -91,7 +91,7 @@ const Banner = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div
-              className='flex flex-col justify-center items-center w-[65vw] h-[55vh]'
+              className='flex flex-col justify-center items-center w-[65vw] h-[55vh] rounded-2xl'
               style={{
                 background: `
                 linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -104,7 +104,7 @@ const Banner = () => {
               <h1 className='font-bold text-4xl text-center w-1/2 mb-4'>
                 Toast to Luxury Living: Vineyards Available for Sale or Rent
               </h1>
-              <p className='text-center w-1/2 mb-4'>
+              <p className='text-center w-1/2 mb-4 lg:block md:block hidden'>
                 Indulge in the elegance and sophistication of vineyard ownership
                 with our exclusive selection of properties available for sale or
                 rent. From sun-kissed slopes to scenic valleys, these vineyards

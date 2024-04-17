@@ -8,6 +8,7 @@ import Login from '../components/Login';
 import Register from '../components/Register';
 import LandDetails from '../components/LandDetails';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import Purchasehistory from '../components/Purchasehistory';
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -37,6 +38,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UserProfile></UserProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/purchasehistory',
+        element: (
+          <PrivateRoute>
+            <Purchasehistory></Purchasehistory>
           </PrivateRoute>
         ),
       },
