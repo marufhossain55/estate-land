@@ -1,12 +1,35 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { AuthContext } from '../Provider/FirebaseProvider';
 
 const Register = () => {
-  const location = useLocation();
+  const { createUser } = useContext(AuthContext);
 
+  ////////////////////
+  const location = useLocation();
   useEffect(() => {
     document.title = `Register`;
   }, [location]);
+  /////////////
+  ////////////////////////////////////
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    const { email, password } = data;
+    createUser(email, password)
+      .then((result) => console.log(result))
+      .catch((error) => console.error(error));
+  };
+  ///////////////////////////////////////
+  const handleNestedSubmit = (e) => {
+    e.preventDefault();
+    handlePassSubmit();
+  };
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -14,7 +37,7 @@ const Register = () => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handlePassSubmit = (event) => {
     event.preventDefault();
 
     // Regular expressions for validation
@@ -46,20 +69,20 @@ const Register = () => {
   return (
     <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 dark:bg-gray-50 dark:text-gray-800 mx-auto'>
       <div className='mb-8 text-center'>
-        <h1 className='my-3 text-4xl font-bold'>Sign Up</h1>
+        <h1 className='my-3 text-4xl font-bold'>Register</h1>
         <p className='text-sm dark:text-gray-600'>
           Sign Up to create your account
         </p>
       </div>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(onSubmit)}
         noValidate=''
         action=''
         className='space-y-12'
       >
         <div className='space-y-4'>
           <div>
-            <label htmlFor='name' className='block mb-2 text-sm'>
+            <label htmlFor='displayName' className='block mb-2 text-sm'>
               Name
             </label>
             <input
@@ -68,7 +91,11 @@ const Register = () => {
               id='name'
               placeholder='Your name'
               className='w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800'
+              {...register('FullName', { required: true })}
             />
+            {errors.FullName && (
+              <span className='text-red-500'>This field is required</span>
+            )}
           </div>
           <div>
             <label htmlFor='email' className='block mb-2 text-sm'>
@@ -78,21 +105,29 @@ const Register = () => {
               type='email'
               name='email'
               id='email'
-              placeholder='leroy@jenkins.com'
+              placeholder='leroy@gmail.com'
               className='w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800'
+              {...register('email', { required: true })}
             />
+            {errors.email && (
+              <span className='text-red-500'>This field is required</span>
+            )}
           </div>
           <div>
-            <label htmlFor='photo' className='block mb-2 text-sm'>
+            <label htmlFor='photoURL' className='block mb-2 text-sm'>
               photoURL
             </label>
             <input
               type='text'
-              name='photo'
-              id='photo'
+              name='image'
+              id='image'
               placeholder='Photo URL'
               className='w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800'
+              {...register('image')}
             />
+            {errors.image && (
+              <span className='text-red-500'>This field is required</span>
+            )}
           </div>
           <div>
             <div className='flex justify-between mb-2'>
@@ -107,35 +142,33 @@ const Register = () => {
               id='password'
               placeholder='*****'
               className='w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800'
+              {...register('password', { required: true })}
             />
+            {errors.password && (
+              <span className='text-red-500'>This field is required</span>
+            )}
           </div>
         </div>
         <div className='space-y-2'>
           <div>
-            {/* <button
-              type='button'
-              className='btn w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50'
-            >
-              Sign Up
-            </button> */}
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
             <button
               type='submit'
               className='btn w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50'
             >
-              Sign Up
+              Register
             </button>
           </div>
           <p className='px-6 text-sm text-center dark:text-gray-600'>
             Already have an account ?
             <NavLink
+              to='/login'
               rel='noopener noreferrer'
               href='#'
               className='font-bold hover:underline dark:text-violet-600'
             >
               Sign In
             </NavLink>
-            .
           </p>
         </div>
       </form>
