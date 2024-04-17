@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { AuthContext } from '../Provider/FirebaseProvider';
+import useAuth from '../Hooks/useAuth';
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser } = useAuth();
 
   ////////////////////
   const location = useLocation();

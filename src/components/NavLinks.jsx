@@ -43,7 +43,7 @@ const NavLinks = () => {
           </ul>
         </div>
         <NavLink to='/' className='text-2xl btn btn-ghost'>
-          LandOPedia
+          DreamOland
         </NavLink>
       </div>
       <div className='navbar-center hidden lg:flex'>
