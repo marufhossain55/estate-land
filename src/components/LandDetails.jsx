@@ -1,9 +1,15 @@
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useLocation, useParams } from 'react-router-dom';
 import { FaLocationCrosshairs } from 'react-icons/fa6';
 import { FaHome } from 'react-icons/fa';
+import { useEffect } from 'react';
 const LandDetails = () => {
   const { id } = useParams();
   const landDetails = useLoaderData();
+
+  const location1 = useLocation();
+  useEffect(() => {
+    document.title = `${location1.pathname}`;
+  }, [location1]);
 
   const singleLand = landDetails.find((card) => card.id == id);
   const {

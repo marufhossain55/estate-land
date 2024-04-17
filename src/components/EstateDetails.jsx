@@ -1,10 +1,15 @@
 import { MdHomeFilled, MdOutlineSell } from 'react-icons/md';
 import { IoLocationSharp } from 'react-icons/io5';
-import { IoPricetag } from 'react-icons/io5';
+
 import { MdAttachMoney } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const EstateDetails = ({ land }) => {
+  const location1 = useLocation();
+  useEffect(() => {
+    document.title = `${location1.pathname}`;
+  }, [location1]);
   const {
     estate_title,
     segment_name,

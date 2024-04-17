@@ -1,8 +1,16 @@
 import { useForm } from 'react-hook-form';
 import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 const UpdateProfile = () => {
   const { updateUserProfile } = useAuth();
+
+  const location = useLocation();
+  useEffect(() => {
+    document.title = `${location.pathname}`;
+  }, [location]);
+
   const {
     register,
     handleSubmit,

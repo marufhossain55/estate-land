@@ -10,7 +10,7 @@ const Register = () => {
   ////////////////////
   const location = useLocation();
   useEffect(() => {
-    document.title = `Register`;
+    document.title = location.pathname;
   }, [location]);
   /////////////
   ////////////////////////////////////
