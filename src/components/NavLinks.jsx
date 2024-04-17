@@ -1,7 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import userImg from '../assets/user.png';
+import useAuth from '../Hooks/useAuth';
 
 const NavLinks = () => {
+  const { Logout, user } = useAuth();
+  console.log(user);
   const navLinks = (
     <>
       <li>
@@ -51,7 +54,32 @@ const NavLinks = () => {
       </div>
 
       <div className='navbar-end space-x-3'>
-        <div
+        {user?.email ? (
+          <>
+            <div
+              tabIndex={0}
+              role='button'
+              className='btn btn-ghost btn-circle avatar'
+            >
+              <div className='w-10 rounded-full'>
+                <img alt='Tailwind CSS Navbar component' src={userImg} />
+              </div>
+            </div>
+            <div>
+              <button onClick={Logout} className='btn'>
+                Log Out
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            {' '}
+            <Link to='/login' className='btn'>
+              Login
+            </Link>
+          </>
+        )}
+        {/* <div
           tabIndex={0}
           role='button'
           className='btn btn-ghost btn-circle avatar'
@@ -61,10 +89,10 @@ const NavLinks = () => {
           </div>
         </div>
         <div>
-          <NavLink to='/login' className='btn'>
+          <Link to='/login' className='btn'>
             Login
-          </NavLink>
-        </div>
+          </Link>
+        </div> */}
       </div>
     </div>
   );
