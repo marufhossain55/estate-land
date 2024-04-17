@@ -1,11 +1,23 @@
 import { useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import useAuth from '../Hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const { singInUser, googleSignIn, githubSignIn } = useAuth();
 
+  //navigation system
+  const navigate = useNavigate();
+  const location1 = useLocation();
+  const from = location1?.state || '/';
+  const handleSocialLogin = (socialProvider) => {
+    socialProvider().then((result) => {
+      if (result.user) {
+        navigate(from);
+      }
+    });
+  };
   const {
     register,
     handleSubmit,
@@ -15,8 +27,15 @@ const Login = () => {
   const onSubmit = (data) => {
     const { email, password } = data;
     singInUser(email, password)
-      .then((result) => console.log(result))
-      .catch((error) => console.error(error));
+      .then((result) => {
+        if (result.user) {
+          toast.success('Login successfully');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error('please check your email and password');
+      });
   };
   ///////////////////////////////
   const location = useLocation();
@@ -84,7 +103,7 @@ const Login = () => {
       </div>
       <div className='flex justify-center space-x-4'>
         <button
-          onClick={() => googleSignIn()}
+          onClick={() => handleSocialLogin(googleSignIn)}
           aria-label='Log in with Google'
           className='p-3 rounded-sm'
         >
@@ -106,7 +125,7 @@ const Login = () => {
           </svg>
         </button> */}
         <button
-          onClick={() => githubSignIn()}
+          onClick={() => handleSocialLogin(githubSignIn)}
           aria-label='Log in with GitHub'
           className='p-3 rounded-sm'
         >

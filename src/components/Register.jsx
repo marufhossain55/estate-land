@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import useAuth from '../Hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const Register = () => {
-  const { createUser } = useAuth();
+  const { createUser, updateUserProfile } = useAuth();
 
   ////////////////////
   const location = useLocation();
@@ -18,34 +19,17 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  //navigation system
+  const Navigate = useNavigate();
+  const location1 = useLocation();
+  const from = location1?.state || '/';
+
   const onSubmit = (data) => {
-    console.log(data);
-    const { email, password } = data;
-    createUser(email, password)
-      .then((result) => console.log(result))
-      .catch((error) => console.error(error));
-  };
-  ///////////////////////////////////////
-  const handleNestedSubmit = (e) => {
-    e.preventDefault();
-    handlePassSubmit();
-  };
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handlePassSubmit = (event) => {
-    event.preventDefault();
-
-    // Regular expressions for validation
+    const { email, password, fullName, image } = data;
     const uppercaseRegex = /[A-Z]/;
-    console.log(uppercaseRegex);
     const lowercaseRegex = /[a-z]/;
 
-    // Validation checks
     if (password.length < 6) {
       setErrorMessage('Password must be at least 6 characters long');
       return;
@@ -61,9 +45,20 @@ const Register = () => {
       return;
     }
 
-    // Password meets all criteria
-    setErrorMessage(''); // Clear error message
-    // Here you can submit the form or perform any other action
+    createUser(email, password).then(() => {
+      updateUserProfile(fullName, image).then(() => {
+        Navigate(from);
+      });
+      toast.success('registration successfull');
+    });
+  };
+  ///////////////////////////////////////
+
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
   };
 
   return (
@@ -82,7 +77,7 @@ const Register = () => {
       >
         <div className='space-y-4'>
           <div>
-            <label htmlFor='displayName' className='block mb-2 text-sm'>
+            <label htmlFor='name' className='block mb-2 text-sm'>
               Name
             </label>
             <input

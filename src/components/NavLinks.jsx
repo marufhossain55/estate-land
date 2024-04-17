@@ -14,12 +14,15 @@ const NavLinks = () => {
         <NavLink to='/updateprofile'>Update Profile</NavLink>
       </li>
       <li>
-        <NavLink to='userprofile'>User Profile</NavLink>
+        <NavLink to='/userprofile'>User Profile</NavLink>
+      </li>
+      <li>
+        <NavLink to='/purchasehistory'>Purchase History</NavLink>
       </li>
     </>
   );
   return (
-    <div className='navbar bg-base-100 container mx-auto'>
+    <div className='navbar bg-base-100 container mx-auto mt-10'>
       <div className='navbar-start'>
         <div className='dropdown'>
           <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>
@@ -54,15 +57,16 @@ const NavLinks = () => {
       </div>
 
       <div className='navbar-end space-x-3'>
-        {user?.email ? (
+        {user ? (
           <>
             <div
               tabIndex={0}
               role='button'
-              className='btn btn-ghost btn-circle avatar'
+              className='btn btn-ghost btn-circle avatar tooltip'
+              data-tip={user?.displayName}
             >
               <div className='w-10 rounded-full'>
-                <img alt='Tailwind CSS Navbar component' src={userImg} />
+                <img alt='username' src={user?.photoURL || userImg} />
               </div>
             </div>
             <div>

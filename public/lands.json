@@ -4,107 +4,107 @@
     "estate_title": "Beautiful Ranch with Stunning Views",
     "segment_name": "Ranches",
     "description": "This stunning ranch offers panoramic views of the surrounding countryside. Perfect for those seeking tranquility and space.",
-    "price": "$1,500,000",
+    "price": "1,500,000",
     "status": "sale",
     "area": "500 acres",
     "location": "Montana, USA",
     "facilities": ["Spacious living room", "Swimming pool", "Gourmet kitchen"],
-    "image_url": "https://example.com/ranch_image.jpg"
+    "image_url": "https://i.ibb.co/MftyVkh/Farms.jpg"
   },
   {
     "id": 2,
     "estate_title": "Charming Vineyard in the French Countryside",
     "segment_name": "Vineyards",
     "description": "Experience the beauty of French winemaking traditions with this picturesque vineyard. Perfect for wine enthusiasts and entrepreneurs.",
-    "price": "€2,000,000",
-    "status": "sale",
+    "price": "2,000,000",
+    "status": "Rent",
     "area": "100 acres",
     "location": "Bordeaux, France",
     "facilities": ["Wine production facilities", "Tasting room", "Grapevines"],
-    "image_url": "https://example.com/vineyard_image.jpg"
+    "image_url": "https://i.ibb.co/sHpPg5B/Vineyards.jpg"
   },
   {
     "id": 3,
     "estate_title": "Idyllic Farmhouse Retreat",
     "segment_name": "Farms",
     "description": "Escape to the countryside with this charming farmhouse retreat. Enjoy fresh air, wide-open spaces, and the beauty of nature.",
-    "price": "$750,000",
+    "price": "750,000",
     "status": "sale",
     "area": "50 acres",
     "location": "Tuscany, Italy",
     "facilities": ["Cozy bedrooms", "Farm animals", "Organic garden"],
-    "image_url": "https://example.com/farmhouse_image.jpg"
+    "image_url": "https://i.ibb.co/TkX14hN/Plantations.jpg"
   },
   {
     "id": 4,
     "estate_title": "Scenic Forest Getaway",
     "segment_name": "Forests",
     "description": "Experience the serenity of the forest with this secluded getaway. Surrounded by towering trees and wildlife, it's a nature lover's paradise.",
-    "price": "$900,000",
-    "status": "sale",
+    "price": "900,000",
+    "status": "Rent",
     "area": "300 acres",
     "location": "British Columbia, Canada",
     "facilities": ["Hiking trails", "Cabin", "Campfire area"],
-    "image_url": "https://example.com/forest_image.jpg"
+    "image_url": "https://i.ibb.co/f2gXC8b/Forests2.jpg"
   },
   {
     "id": 5,
     "estate_title": "Expansive Plantation Estate",
     "segment_name": "Plantations",
     "description": "Step into a world of luxury and grandeur with this expansive plantation estate. Rich history, breathtaking landscapes, and modern amenities await.",
-    "price": "$3,500,000",
-    "status": "sale",
+    "price": "3,500,000",
+    "status": "Rent",
     "area": "1000 acres",
-    "location": "Charleston, South Carolina, USA",
+    "location": " South Carolina, USA",
     "facilities": ["Manor house", "Swimming pool", "Gardens"],
-    "image_url": "https://example.com/plantation_image.jpg"
+    "image_url": "https://i.ibb.co/jw3W8qY/Agricultural-Land.jpg"
   },
   {
     "id": 6,
     "estate_title": "Sprawling Agricultural Land",
     "segment_name": "Agricultural Land",
     "description": "Invest in the future with this vast expanse of agricultural land. Suitable for farming, ranching, or development projects.",
-    "price": "$2,200,000",
+    "price": "2,200,000",
     "status": "sale",
     "area": "2000 acres",
     "location": "Kansas, USA",
     "facilities": ["Irrigation system", "Fertile soil", "Farm equipment"],
-    "image_url": "https://example.com/agricultural_land_image.jpg"
+    "image_url": "https://i.ibb.co/F0yyM0V/land2.jpg"
   },
   {
     "id": 7,
     "estate_title": "Luxurious Ranch Retreat",
     "segment_name": "Ranches",
     "description": "Indulge in luxury living with this exquisite ranch retreat. Equestrian facilities, stunning landscapes, and upscale amenities await.",
-    "price": "$4,000,000",
-    "status": "sale",
+    "price": "4,000,000",
+    "status": "Rent",
     "area": "800 acres",
     "location": "Colorado, USA",
     "facilities": ["Equestrian center", "Guest cabins", "Tennis court"],
-    "image_url": "https://example.com/luxurious_ranch_image.jpg"
+    "image_url": "https://i.ibb.co/Tt93C9b/Ranches2.jpg"
   },
   {
     "id": 8,
     "estate_title": "Charming Farmstead with Panoramic Views",
     "segment_name": "Farms",
     "description": "Embrace the charm of country living with this delightful farmstead. Sweeping views, rustic charm, and modern comforts make it a perfect retreat.",
-    "price": "$950,000",
+    "price": "950,000",
     "status": "sale",
     "area": "120 acres",
     "location": "Virginia, USA",
     "facilities": ["Barn", "Pond", "Scenic overlook"],
-    "image_url": "https://example.com/charming_farmstead_image.jpg"
+    "image_url": "https://i.ibb.co/S0dGJbb/Ranches.jpg"
   },
   {
     "id": 9,
     "estate_title": "Picturesque Forest Cabin",
     "segment_name": "Forests",
     "description": "Escape to nature with this charming forest cabin. Surrounded by trees, wildlife, and tranquility, it's the perfect retreat from city life.",
-    "price": "$300,000",
+    "price": "300,000",
     "status": "sale",
     "area": "10 acres",
     "location": "Oregon, USA",
     "facilities": ["Cozy cabin", "Deck with forest views", "Fire pit"],
-    "image_url": "https://example.com/forest_cabin_image.jpg"
+    "image_url": "https://i.ibb.co/PYzLdCh/Forests.jpg"
   }
 ]
