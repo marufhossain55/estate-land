@@ -10,6 +10,7 @@ const Estates = ({ lands }) => {
       ;
       <div className='mt-10'>
         <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 container mx-auto space-y-6'>
+          {/* className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 container mx-auto space-y-6' */}
           {lands.map((land) => (
             <EstateDetails key={land.id} land={land}></EstateDetails>
           ))}

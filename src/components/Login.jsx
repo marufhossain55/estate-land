@@ -1,11 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import { FaEyeSlash } from 'react-icons/fa';
+import { FaEye } from 'react-icons/fa';
 
 const Login = () => {
   const { singInUser, googleSignIn, githubSignIn } = useAuth();
+
+  const [showPassword, setShowPassword] = useState(false);
 
   //navigation system
   const navigate = useNavigate();
@@ -48,7 +52,7 @@ const Login = () => {
   /////////////////////////
 
   return (
-    <div className='w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800 mx-auto'>
+    <div className='w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800 mx-auto  -mb-72'>
       <h1 className='text-2xl font-bold text-center'>Login</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -76,14 +80,22 @@ const Login = () => {
           <label htmlFor='password' className='block dark:text-gray-600'>
             Password
           </label>
-          <input
-            type='password'
-            name='password'
-            id='password'
-            placeholder='Password'
-            className='w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800'
-            {...register('password', { required: true })}
-          />
+          <div className='relative'>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              name='password'
+              id='password'
+              placeholder='Password'
+              className='w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 '
+              {...register('password', { required: true })}
+            />
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              className=' absolute right-5 top-3'
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
           {errors.password && (
             <span className='text-red-500'>This field is required</span>
           )}

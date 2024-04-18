@@ -13,7 +13,7 @@ import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 const Banner = () => {
   return (
     <div className='container mx-auto mt-16'>
-      <div className='lg:w-[132vh] mx-auto md:w-[50vh] md:mt-20 w-[38vh]'>
+      <div className='lg:w-[126vh] mx-auto md:w-[50vh] md:mt-20 w-[38vh]'>
         <Swiper
           spaceBetween={30}
           effect={'fade'}

@@ -3,9 +3,12 @@ import { NavLink, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import { FaEyeSlash } from 'react-icons/fa';
+import { FaEye } from 'react-icons/fa';
 
 const Register = () => {
   const { createUser, updateUserProfile } = useAuth();
+  const [showPassword, setShowPassword] = useState(false);
 
   ////////////////////
   const location = useLocation();
@@ -132,15 +135,24 @@ const Register = () => {
                 Password
               </label>
             </div>
-            <input
-              onChange={handlePasswordChange}
-              type='password'
-              name='password'
-              id='password'
-              placeholder='*****'
-              className='w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800'
-              {...register('password', { required: true })}
-            />
+            <div className='relative'>
+              <input
+                onChange={handlePasswordChange}
+                type={showPassword ? 'text' : 'password'}
+                name='password'
+                id='password'
+                placeholder='Password'
+                className='w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 '
+                {...register('password', { required: true })}
+              />
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className=' absolute right-5 top-3'
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
+            {/* onChange={handlePasswordChange} */}
             {errors.password && (
               <span className='text-red-500'>This field is required</span>
             )}
