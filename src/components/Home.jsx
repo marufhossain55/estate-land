@@ -7,7 +7,7 @@ const Home = () => {
   /////////////
   const location = useLocation();
   useEffect(() => {
-    document.title = `Home`;
+    document.title = `DreamOland`;
   }, [location]);
   //////////////////
   const lands = useLoaderData();

@@ -11,9 +11,11 @@ const Login = () => {
   const navigate = useNavigate();
   const location1 = useLocation();
   const from = location1?.state || '/';
+
   const handleSocialLogin = (socialProvider) => {
     socialProvider().then((result) => {
       if (result.user) {
+        toast.success('Login successfully');
         navigate(from);
       }
     });
@@ -30,6 +32,7 @@ const Login = () => {
       .then((result) => {
         if (result.user) {
           toast.success('Login successfully');
+          navigate(from);
         }
       })
       .catch((error) => {
@@ -90,7 +93,7 @@ const Login = () => {
             </a> */}
           </div>
         </div>
-        <button className=' btn block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600'>
+        <button className=' btn  btn-accent block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600'>
           Sign in
         </button>
       </form>
@@ -144,10 +147,10 @@ const Login = () => {
           to='/register'
           rel='noopener noreferrer'
           href='#'
-          className='hover:underline dark:text-violet-600 font-bold'
+          className=' hover:underline dark:text-violet-600 font-bold'
         >
           {' '}
-          Sign up
+          Register
         </NavLink>
         .
       </p>

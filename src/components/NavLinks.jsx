@@ -4,7 +4,12 @@ import useAuth from '../Hooks/useAuth';
 
 const NavLinks = () => {
   const { Logout, user } = useAuth();
-  console.log(user);
+  const handleLogOut = () => {
+    Logout()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+
   const navLinks = (
     <>
       <li>
@@ -22,7 +27,7 @@ const NavLinks = () => {
     </>
   );
   return (
-    <div className='navbar bg-base-100 container mx-auto mt-10]'>
+    <div className='navbar bg-base-100 container mx-auto mt-10 top-0 z-50'>
       <div className='navbar-start'>
         <div className='dropdown'>
           <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>
@@ -70,7 +75,7 @@ const NavLinks = () => {
               </div>
             </div>
             <div>
-              <button onClick={Logout} className='btn'>
+              <button onClick={handleLogOut} className='btn btn-accent'>
                 Log Out
               </button>
             </div>
@@ -78,7 +83,7 @@ const NavLinks = () => {
         ) : (
           <>
             {' '}
-            <Link to='/login' className='btn'>
+            <Link to='/login' className='btn btn-accent'>
               Login
             </Link>
           </>

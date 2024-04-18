@@ -4,7 +4,7 @@ const UserProfile = () => {
   const { user } = useAuth();
   console.log(user);
   return (
-    <div className='max-w-md p-8 sm:flex sm:space-x-6 dark:bg-gray-50 dark:text-gray-800 mx-auto'>
+    <div className='max-w-md p-8 sm:flex sm:space-x-6 dark:bg-gray-50 dark:text-gray-800 mx-auto -mb-14'>
       <div className='flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0'>
         <img
           src={user?.photoURL}

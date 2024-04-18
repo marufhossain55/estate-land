@@ -12,8 +12,8 @@ import 'swiper/css/pagination';
 import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 const Banner = () => {
   return (
-    <div className='container mx-auto mt-10'>
-      <div className='lg:w-[132vh] mx-auto md:w-[50vh] md:mt-20 w-[30vh]'>
+    <div className='container mx-auto mt-16'>
+      <div className='lg:w-[132vh] mx-auto md:w-[50vh] md:mt-20 w-[38vh]'>
         <Swiper
           spaceBetween={30}
           effect={'fade'}
@@ -75,7 +75,7 @@ const Banner = () => {
               }}
             >
               <h1 className='font-bold text-4xl text-center w-1/2 mb-4'>
-                Live the Cowboy Dream: Ranches for Sale or Rent
+                Ranches for Sale or Rent
               </h1>
               <p className='text-center w-1/2 mb-4 lg:block md:block hidden'>
                 Escape to the enchanting world of ranch living with our
@@ -102,7 +102,7 @@ const Banner = () => {
               }}
             >
               <h1 className='font-bold text-4xl text-center w-1/2 mb-4'>
-                Toast to Luxury Living: Vineyards Available for Sale or Rent
+                Toast to Luxury Living: Vineyards Available
               </h1>
               <p className='text-center w-1/2 mb-4 lg:block md:block hidden'>
                 Indulge in the elegance and sophistication of vineyard ownership

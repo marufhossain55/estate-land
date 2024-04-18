@@ -27,6 +27,15 @@ const Register = () => {
 
   const onSubmit = (data) => {
     const { email, password, fullName, image } = data;
+
+    //create user and update profile
+    createUser(email, password).then(() => {
+      updateUserProfile(fullName, image).then(() => {
+        Navigate(from);
+      });
+      toast.success('registration successfull');
+    });
+
     const uppercaseRegex = /[A-Z]/;
     const lowercaseRegex = /[a-z]/;
 
@@ -44,13 +53,6 @@ const Register = () => {
       setErrorMessage('Password must contain at least one lowercase letter');
       return;
     }
-
-    createUser(email, password).then(() => {
-      updateUserProfile(fullName, image).then(() => {
-        Navigate(from);
-      });
-      toast.success('registration successfull');
-    });
   };
   ///////////////////////////////////////
 
@@ -149,7 +151,7 @@ const Register = () => {
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
             <button
               type='submit'
-              className='btn w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50'
+              className='btn btn-accent w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50'
             >
               Register
             </button>

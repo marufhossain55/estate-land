@@ -7,7 +7,9 @@ const Root = () => {
     <div>
       <NavLinks></NavLinks>
       <Outlet></Outlet>
-      <Footer></Footer>
+      <div className='mt-[29rem]'>
+        <Footer></Footer>
+      </div>
     </div>
   );
 };

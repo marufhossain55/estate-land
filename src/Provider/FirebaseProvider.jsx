@@ -10,7 +10,7 @@ import { createContext, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.config';
 import { GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext();
 
 // social auth providers
 const GoogleProvider = new GoogleAuthProvider();
@@ -18,8 +18,7 @@ const GithubProvider = new GithubAuthProvider();
 
 const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loding, setLoading] = useState(true);
-  console.log(user);
+  const [loading, setLoading] = useState(true);
 
   //create user
   const createUser = (email, password) => {
@@ -49,7 +48,6 @@ const FirebaseProvider = ({ children }) => {
   //Logout
   const Logout = () => {
     setLoading(true);
-    setUser(null);
     return signOut(auth);
   };
 
@@ -63,12 +61,15 @@ const FirebaseProvider = ({ children }) => {
 
   // observer
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unSubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        setLoading(false);
+      } else {
+        setUser(null);
       }
+      setLoading(false);
     });
+    return () => unSubscribe();
   }, []);
 
   const authInfo = {
@@ -79,7 +80,7 @@ const FirebaseProvider = ({ children }) => {
     Logout,
     user,
     updateUserProfile,
-    loding,
+    loading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
