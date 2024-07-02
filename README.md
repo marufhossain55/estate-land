@@ -2,6 +2,12 @@
 
 # Live URL : https://estate-land-auth.web.app/
 
+# How to Run this Project
+
+- clone or Download
+- npm i
+- npm run dev
+
 ## Features and Characteristics
 
 - **Land Listings:** Browse a wide selection of lands available for rent and purchase.
@@ -10,8 +16,7 @@
 - **User Authentication:** Secure user authentication system for creating accounts and managing listings.
 - **Renting and Buying:** Convenient reanting and buying process for renting or purchasing lands.
 
-## npm package name
-
-- Animate.css [npm install animate.css --save]
-- React Hook form[npm install react-hook-form]
-- Swiper slider [$ npm install swiper]
+ # used technology
+    - react.js
+    - javaScript
+    - tailwind CSS
